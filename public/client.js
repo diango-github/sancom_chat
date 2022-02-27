@@ -26,7 +26,9 @@ const g_elementVideoLocal = document.getElementById( "video_local" );
 let g_mapRtcPeerConnection = new Map();
 
 // クライアントからサーバーへの接続要求
-const g_socket = io.connect();
+const socket = io({path: '/translate/socket.io/'}); //サーバ―ではこちら
+const g_socket = socket.connect(); //サーバーではこちら
+//const g_socket = io.connect(); //ローカルではこちら
 
 const g_elementTextMessageForSend = document.getElementById( "text_message_for_send" );
 const g_elementTextareaMessageReceived = document.getElementById( "textarea_message_received" );
